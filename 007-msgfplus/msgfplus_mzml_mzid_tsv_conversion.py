@@ -3,8 +3,6 @@ import os
 import subprocess
 import utility
 
-# input_path = 'E:\\Desktop\\test\\input'
-
 path = os.getcwd()
 input_path = path + "\\input\\"
 output_path = path + "\\output\\"
@@ -22,7 +20,8 @@ mzml_mzid_cmd = '"{java_exec_path}" -Xmx4000M ' \
                 '-s "{mzml_path}\\{filename}.mzML" ' \
                 '-o "{out_result_folder}\\{filename}.mzid" ' \
                 '-d "{db_fasta_file_path}" ' \
-                '-t 0.5Da -m 1 -inst 0 -e 1  -ntt 0 -tda 1 -minLength 6 -maxLength 40 -n 1 -thread 8 ' \
+                '-t 2.5Da,1.5Da -m 0 -inst 0 -e 1  -ntt 1 -tda 1 -minLength 6 '\
+                '-maxLength 50 -minCharge 2 -maxCharge 5 -n 1 -thread 8 ' \
                 '-mod "{msgfp_mods_file_path}"'
 
 mzid_tsv_cmd = '{mzid_to_tsv_exec_path} ' \
