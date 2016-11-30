@@ -60,6 +60,15 @@ def dict_xls(dct, filename):
 
     workbook.close()
 
+def get_dir_file_list(dir_path, with_size = False, with_path = False):
+    from os import listdir
+    from os.path import isfile, join
+    if with_size:
+        list_files = [(join(dir_path, f) if with_path else f) + '\t' + str(os.path.getsize(join(dir_path, f))) for f in listdir(dir_path) if isfile(join(dir_path, f))]
+    else:
+        list_files = [(join(dir_path, f) if with_path else f) for f in listdir(dir_path) if isfile(join(dir_path, f))]
+    return list_files
+
 def make_items_distinct_in_file(path=get_run_path(), filename_in='', sort=False,
                                 prefix_or_postfix=0, fix_phrase=''):
 

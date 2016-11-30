@@ -8,10 +8,10 @@ input_path = path + "\\input\\"
 output_path = path + "\\output\\"
 java_exec_path = 'C:\\Program Files\\Java\\jre1.8.0_112\\bin\\java.exe'
 msgfplus_jar_path = 'D:\\Server\\MSGFPlus\\MSGFPlus.jar'
-mzml_path = 'F:\\MSV000079053_MZML\\Ralstonia_pickettii'
-msgfp_mods_file_path = '{0}MSGFPlus_Mods-20161117.txt'.format(input_path)
+mzml_path = 'D:\\Ralstonia_pickettii'
+msgfp_mods_file_path = '{0}MSGFPlus_Mods-20161121.txt'.format(input_path)
 db_fasta_file_path = '{0}ID_004956_793E1036.fasta'.format(input_path)
-out_result_folder = "{0}msgfp_v2".format(output_path)
+out_result_folder = "{0}msgfp_v3".format(output_path)
 
 mzid_to_tsv_exec_path = 'D:\\Server\\MSGFPlus\\MzidToTsvConverter\\MzidToTsvConverter.exe'
 
@@ -24,9 +24,14 @@ mzml_mzid_cmd = '"{java_exec_path}" -Xmx4000M ' \
                 '-maxLength 50 -minCharge 2 -maxCharge 5 -n 1 -thread 8 ' \
                 '-mod "{msgfp_mods_file_path}"'
 
-mzid_tsv_cmd = '{mzid_to_tsv_exec_path} ' \
+mzid_tsv_cmd_win = '{mzid_to_tsv_exec_path} ' \
                '-mzid:"{input_folder}\\{filename}.mzid" ' \
                '-tsv:"{output_folder}\\{filename}.tsv"'
+
+mzid_tsv_cmd = '"{java_exec_path}" -Xmx3500M ' \
+               '-cp "{msgfplus_jar_path}" edu.ucsd.msjava.ui.MzIDToTsv ' \
+               '-i "{input_folder}\\{filename}.mzid" ' \
+               '-o "{output_folder}\\{filename}.tsv" '
 
 tsv_file_merged = '{0}\\KO_Rpick_Merged.tsv'.format(out_result_folder)
 list_tsv_files = []
