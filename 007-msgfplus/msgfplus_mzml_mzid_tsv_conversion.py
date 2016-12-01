@@ -57,7 +57,8 @@ for file in glob.glob(os.path.join(mzml_path, '*.mzML')):
 for file in glob.glob(os.path.join(mzml_path, '*.mzML')):
     filenameext = os.path.basename(file)
     filename = os.path.splitext(filenameext)[0]
-    subprocess.call(mzid_tsv_cmd.format(mzid_to_tsv_exec_path = mzid_to_tsv_exec_path,
+    subprocess.call(mzid_tsv_cmd.format(java_exec_path = java_exec_path,
+                                        msgfplus_jar_path = msgfplus_jar_path,
                                         input_folder = out_result_folder,
                                         output_folder = out_result_folder,
                                         filename = filename), shell=True)
