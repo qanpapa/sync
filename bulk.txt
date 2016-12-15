@@ -6,3 +6,15 @@ http://stackoverflow.com/questions/3462143/get-difference-between-two-lists
 https://www.biostars.org/p/50154/
 
 http://www.uniprot.org/uniprot/?sort=score&desc=&compress=no&query=faecalibacterium_prausnitzii&fil=&format=fasta
+
+import os
+import utility
+path = os.getcwd()
+list_tsv_files = []
+path = os.path.join(path, 'test')
+file = os.path.join(path, 'Biodiversity_S_aurantiaca_CYE_aerobic_1_17July16_Samwise_16-04-10.tsv')
+list_tsv_files.append(file)
+file = os.path.join(path, 'Biodiversity_S_aurantiaca_CYE_aerobic_3_17July16_Samwise_16-04-10.tsv')
+list_tsv_files.append(file)
+tsv_file_merged = os.path.join(path, 's_aurantiaca_merged.tsv')
+utility.concat_files(list_tsv_files, tsv_file_merged, True)
