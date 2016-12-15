@@ -5,4 +5,4 @@ http://stackoverflow.com/questions/2541752/how-best-do-i-find-the-intersection-o
 http://stackoverflow.com/questions/3462143/get-difference-between-two-lists
 https://www.biostars.org/p/50154/
 
-A_cryptum_FeTSB_anaerobic_1_01Jun16_Pippin_16-03-39.mzML.gz
+http://www.uniprot.org/uniprot/?sort=score&desc=&compress=no&query=faecalibacterium_prausnitzii&fil=&format=fasta
