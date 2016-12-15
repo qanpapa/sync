@@ -55,8 +55,9 @@ def calc_peptide_matches(fasta_seq_list, fasta_filename):
                 increase_dict_val(dict_occur_matrix_pept, cross_pept_index, pept_occur)
 
                 increase_dict_val(dict_count_matrix, cross_index, 1)
-                increase_dict_val(dict_count_matrix_prot, cross_prot_index, 1)
                 increase_dict_val(dict_count_matrix_pept, cross_pept_index, 1)
+
+            increase_dict_val(dict_count_matrix_prot, cross_prot_index, 1)
 
             pept_index += 1
 
@@ -65,7 +66,7 @@ def calc_peptide_matches(fasta_seq_list, fasta_filename):
 
     with open(result_file, "a") as result:
         result.write(('all protein sequence count in fasta: {1} database: {0}\n'.format(dict_count_matrix_prot.__len__(), fasta_filename)))
-        result.write('all peptides count in blib database: {0}\n'.format(list_pept.__len__()))
+        result.write('all peptides count in msgfplus database: {0}\n'.format(list_pept.__len__()))
         result.write('number of unique peptides matched with fasta: {0} database: {1}\n'.format(fasta_filename, dict_count_matrix_pept.__len__()))
         result.write('all peptides count matched with fasta: {0} database: {1}\n'.format(fasta_filename, sum_peptide_count))
         result.write('all peptides occurrence matched with fasta: {0} database: {1}\n\n'.format(fasta_filename, sum_peptide_occurrence))
