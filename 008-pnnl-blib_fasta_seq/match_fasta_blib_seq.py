@@ -1,6 +1,4 @@
 import os
-import glob
-import fnmatch
 from Bio import SeqIO
 
 path = os.getcwd()
